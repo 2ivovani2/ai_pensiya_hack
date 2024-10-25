@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Спасибо!</title>
+    <!-- Подключение шрифта Montserrat из Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../staticfiles/css/thank_you.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Спасибо, {{ name }}!</h1>
+        <p>Благодарим вас за участие в опросе.</p>
+        <a href="{{ url_for('home') }}" class="button">Вернуться на главную страницу</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Опрос о Пенсии</p>
+    </footer>
+</body>
+</html>

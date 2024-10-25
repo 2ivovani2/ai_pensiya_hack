@@ -1,0 +1,159 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    overflow-x: hidden;
+}
+
+header {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1.5s;
+}
+
+header p {
+    font-size: 24px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 2s;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+form {
+    animation: fadeIn 2s;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 5px; /* Уменьшили отступ для размещения сообщений об ошибках */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Эффекты при наведении и фокусе */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #0073e6;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #0073e6;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    margin: 30px auto 0;
+}
+
+input[type="submit"]:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #e0e5ea;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+    color: #555;
+}
+
+/* Стили для placeholder */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 25px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.error-message.visible {
+    opacity: 1;
+    height: auto;
+}
+
+/* Обновленный стиль для поля с ошибкой */
+.error {
+    border-color: red;
+    transition: border-color 0.3s ease;
+}

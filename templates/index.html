@@ -1,10 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мое Flask-приложение</title>
-</head>
+    <title>Опрос о Раннем Выходе на Пенсию</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../staticfiles/css/index.css">
+
 <body>
-    <h1>Добро пожаловать в мое Flask-приложение!</h1>
+    <header>
+        <h1>Готовы ли Вы к Раннему Выходу на Пенсию?</h1>
+        <p>Примите участие в нашем опросе и узнайте больше</p>
+    </header>
+
+    <div class="container">
+        <h2>Опросник</h2>
+        <form id="survey-form" action="{{ url_for('home') }}" method="post">
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+            <span id="name-error" class="error-message"></span>
+
+            <label for="age">Ваш возраст:</label>
+            <input type="text" id="age" name="age" placeholder="Введите ваш возраст" required>
+            <span id="age-error" class="error-message"></span>
+
+            <label for="email">Ваш Email:</label>
+            <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+            <span id="email-error" class="error-message"></span>
+
+            <label for="retirement-age">В каком возрасте Вы планируете выйти на пенсию?</label>
+            <select id="retirement-age" name="retirement-age" required>
+                <option value="">Выберите вариант</option>
+                <option value="50">До 50 лет</option>
+                <option value="55">50-55 лет</option>
+                <option value="60">55-60 лет</option>
+                <option value="65">60-65 лет</option>
+                <option value="70">После 65 лет</option>
+            </select>
+            <span id="retirement-error" class="error-message"></span>
+
+            <label for="savings">Считаете ли Вы, что у Вас достаточно сбережений для пенсии?</label>
+            <select id="savings" name="savings" required>
+                <option value="">Выберите вариант</option>
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+                <option value="not-sure">Не уверен</option>
+            </select>
+            <span id="savings-error" class="error-message"></span>
+
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Опрос о Пенсии</p>
+    </footer>
+
+    <script src="../staticfiles/js/index.js"></script>
 </body>
 </html>

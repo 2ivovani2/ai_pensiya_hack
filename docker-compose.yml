@@ -1,5 +1,6 @@
 services:
   web:
     build: .
+    command: flask run --host=0.0.0.0
     ports:
-      - "5000:5000"
+      - 8000:5000
