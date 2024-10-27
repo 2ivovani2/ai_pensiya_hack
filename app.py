@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import logging
 import pandas as pd
 from ml.ml_pipeline import CatPipeline
+import random
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -13,7 +14,7 @@ app = Flask(
     static_folder='staticfiles',
     static_url_path='/staticfiles'
 )
-
+random.seed(20)
 # pipeline =  CatPipeline()
 
 @app.route('/', methods=["GET", "POST"])
@@ -37,7 +38,7 @@ def home():
                 elif file_ext == 'xlsx':
                     df = pd.read_excel(file)
                 
-                preds, probas  = pipeline(df=df, flag_file=1)
+                # preds, probas  = pipeline(df=df, flag_file=1)
                 logging.info(preds, probas)
 
                 logging.info("Файл успешно обработан")
@@ -51,9 +52,9 @@ def home():
             data = dict(request.form)
             updated_data = {"slctn_nmbr": 0}
             updated_data.update(data)
-            preds, probas = pipeline(df=list(updated_data.values()))
-
-            return redirect(url_for('thank_you'))
+            # preds, probas = pipeline(df=list(updated_data.values()))
+            preds, probas = random.randint(0,1), random.random()
+            return redirect(url_for('thank_you', pred=preds, proba=probas))
     
     return render_template('index.html')
 
