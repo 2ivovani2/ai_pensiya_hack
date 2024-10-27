@@ -64,7 +64,9 @@ def error():
 
 @app.route('/thank-you', methods=["GET"])
 def thank_you():
-    return render_template('thank_you.html')
+    pred = request.args.get('pred')
+    proba = request.args.get('proba')
+    return render_template('thank_you.html', pred=pred, proba=proba)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
