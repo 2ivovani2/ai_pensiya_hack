@@ -53,7 +53,7 @@ def home():
             updated_data = {"slctn_nmbr": 0}
             updated_data.update(data)
             # preds, probas = pipeline(df=list(updated_data.values()))
-            preds, probas = random.randint(0,1), random.random()
+            preds, probas = random.randint(0,1), round(random.random(), 2)
             return redirect(url_for('thank_you', pred=preds, proba=probas))
     
     return render_template('index.html')
