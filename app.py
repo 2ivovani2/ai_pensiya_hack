@@ -62,6 +62,7 @@ def home():
 def error():
     return render_template('error.html')
 
+
 @app.route('/thank-you', methods=["GET"])
 def thank_you():
     pred = request.args.get('pred')
